@@ -132,6 +132,8 @@ def display_weather_info(weather_Data, imperial='False'):
         weather_description = 'Cielo despejado'
     elif weather_description == 'few clouds':
         weather_description = 'Algunas nubes'
+    elif weather_description == 'scattered clouds':
+        weather_description = 'Nubes dispersas'
     temperature = weather_data['main']['temp']
     Tsensation = weather_data['main']['feels_like']
     pressure = weather_data['main']['pressure']
@@ -140,7 +142,8 @@ def display_weather_info(weather_Data, imperial='False'):
     sunrise = datetime.datetime.utcfromtimestamp((sunrise_unix)).strftime(' %H:%M:%S')
     sunset_unix = weather_data['sys']['sunset']
     sunset = datetime.datetime.utcfromtimestamp((sunset_unix)).strftime(' %H:%M:%S')
-
+    timeNow_unix = weather_data['dt'] + weather_data['timezone']
+    timeNow = datetime.datetime.utcfromtimestamp((timeNow_unix)).strftime(' %H:%M:%S')
 
     print(f"{city}", end="  ")
     #weather_symbol = _select_weather_display_params(weather_id)
@@ -152,6 +155,7 @@ def display_weather_info(weather_Data, imperial='False'):
     print(f"{humidity}%", )
     print(f"Amanece:{sunrise}", end="  ")
     print(f"Anochece: {sunset}")
+    print(f"Hora Actual: {timeNow}")
 
 
 if __name__  == "__main__":
@@ -159,5 +163,4 @@ if __name__  == "__main__":
     query_url = build_weather_query(user_args.city, user_args.imperial)
     weather_data = get_weather_data(query_url)
     display_weather_info(weather_data, user_args.imperial)
-
 
