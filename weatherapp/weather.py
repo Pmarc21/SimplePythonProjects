@@ -145,6 +145,7 @@ def display_weather_info(weather_Data, imperial='False'):
     timeNow_unix = weather_data['dt'] + weather_data['timezone']
     timeNow = datetime.datetime.utcfromtimestamp((timeNow_unix)).strftime(' %H:%M:%S')
 
+
     print(f"{city}", end="  ")
     #weather_symbol = _select_weather_display_params(weather_id)
     #print(f"\t{weather_symbol}", end=" ")
