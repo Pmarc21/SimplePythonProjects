@@ -1,0 +1,10 @@
+Notas
+
+set "FLASK_APP=run.py"
+set "FLASK_ENV=development"
+flask run
+
+        response = self.request.urlopen(TODOSURL)
+        #data = response.read()
+        #data_json = json.loads(data)
+        #user_id = data_json['userId'][0]

@@ -153,8 +153,8 @@ def display_weather_info(weather_Data, imperial='False'):
     print(f"(Sensación:{Tsensation}º{'F' if imperial else 'C'})", end="  ")
     print(f"{pressure}bar", end="  ")
     print(f"{humidity}%", )
-    print(f"Amanece:{sunrise}", end="  ")
-    print(f"Anochece: {sunset}")
+    print(f"Sunrise:{sunrise}", end="  ")
+    print(f"Sunset: {sunset}")
     print(f"Hora Actual: {timeNow}")
 
 
