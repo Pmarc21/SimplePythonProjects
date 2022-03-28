@@ -26,7 +26,6 @@ class ApiService:
                writer.writeheader()
                writer.writerow(info_todos[x])
 
-
     def run(self):
         print('Running ApiService', file=stderr)
         json_data = self.receive_todos_from_url(TODOSURL)
