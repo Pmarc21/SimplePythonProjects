@@ -1,6 +1,5 @@
 from sys import stderr
-import json, csv, datetime
-from urllib import request
+import json, csv, datetime, requests
 
 TODOSURL = "https://jsonplaceholder.typicode.com/todos/"
 PATH = 'storage/'
@@ -11,8 +10,8 @@ class ApiService:
         pass
 
     def receive_todos_from_url(self,urltodos):
-        response = request.urlopen(urltodos)
-        data = response.read()
+        response = requests.get(urltodos)
+        data = response.text
         return json.loads(data)
 
     def read_info_from_url_to_csv(self, info_todos):
